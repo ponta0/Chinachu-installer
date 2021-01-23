@@ -15,8 +15,11 @@ fi
 
 if [ $1 = "install" ] ; then
     echo "インストールを開始します"
+    # 依存パッケージのインストール
+    apt install -y curl
+    # mirakurunのインストール
     curl -sL https://deb.nodesource.com/setup_14.x | bash -
-    apt-get install -y nodejs
+    apt install -y nodejs
     npm install pm2 -g
     npm install mirakurun -g --unsafe-perm --production
     sh config.sh
