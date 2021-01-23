@@ -17,7 +17,7 @@ if [ $1 = "install" ] ; then
     echo "インストールを開始します"
     git clone git://github.com/Chinachu/Chinachu.git ~/chinachu
     cd ~/chinachu/
-    ./chinachu installer
+    echo 1 | ./chinachu installer
     cp config.sample.json config.json
     sed -e 's/""uid": null,"/""uid": 1000,"/g' config.json
     echo [] > rules.json
