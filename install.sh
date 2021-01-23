@@ -15,10 +15,13 @@ fi
 
 if [ $1 = "install" ] ; then
     echo "インストールを開始します"
-    sh tuners/px-w3u4/px-w3u4.sh
-    sh recpt1/recpt1.sh
-    sh mirakurun/mirakurun.sh
+    echo "パスワードを入力してください"
+    sudo echo "パスワードを確認しました" || exit 0
+    sudo sh tuners/px-w3u4/px-w3u4.sh
+    sudo sh recpt1/recpt1.sh
+    sudo sh mirakurun/mirakurun.sh
     sh chinachu/chinachu.sh
+    sudo sh chinachu/chinachu-root.sh
     echo "インストールが完了しました"
     exit 1
 fi
