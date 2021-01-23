@@ -8,3 +8,4 @@ $ cd Chinachu-installer
 $ sh install.sh install
 ```
 
+Ubuntu 20.04で動作確認済み
