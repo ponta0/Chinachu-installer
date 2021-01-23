@@ -15,12 +15,12 @@ fi
 
 if [ $1 = "install" ] ; then
     echo "インストールを開始します"
-    su $USER -c git clone git://github.com/Chinachu/Chinachu.git ~/chinachu
-    su $USER -c cd ~/chinachu/
-    su $USER -c echo 1 | ./chinachu installer
-    su $USER -c cp config.sample.json config.json
-    su $USER -c sed -i -e 's/"uid": null,/"uid": 1000,/g' config.json
-    su $USER -c echo [] > rules.json
+    sudo -u $USER git clone git://github.com/Chinachu/Chinachu.git ~/chinachu
+    sudo -u $USER cd ~/chinachu/
+    sudo -u $USER echo 1 | ./chinachu installer
+    sudo -u $USER cp config.sample.json config.json
+    sudo -u $USER sed -i -e 's/"uid": null,/"uid": 1000,/g' config.json
+    sudo -u $USER echo [] > rules.json
     pm2 start processes.json
     pm2 save   
     echo "インストールが完了しました"
