@@ -16,7 +16,7 @@ fi
 if [ $1 = "install" ] ; then
     echo "インストールを開始します"
     # 依存パッケージのインストール
-    apt install -y autoconf automake
+    apt install -y autoconf automake libpcsclite-dev pcscd pcsc-tools
     # recpt1をインストール
     git clone https://github.com/stz2012/recpt1.git
     cd recpt1/recpt1/
