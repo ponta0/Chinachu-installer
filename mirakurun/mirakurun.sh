@@ -15,26 +15,19 @@ fi
 
 if [ $1 = "install" ] ; then
     echo "インストールを開始します"
-    # 依存パッケージのインストール
-    apt install -y autoconf automake
-    # recpt1をインストール
-    git clone https://github.com/stz2012/recpt1.git
-    cd recpt1/recpt1/
-    ./autogen.sh
-    ./configure --enable-b25
-    make
-    make install
-    cd ../../
+    curl -sL https://deb.nodesource.com/setup_14.x | bash -
+    apt-get install -y nodejs
+    npm install pm2 -g
+    npm install mirakurun -g --unsafe-perm --production
+    sh config.sh
+    mirakurun restart
     echo "インストールが完了しました"
     exit 1
 fi
 
 if [ $1 = "uninstall" ] ; then
     echo "アンインストールを開始します"
-    # recpt1をアンインストール
-    cd recpt1/recpt1/
-    make uninstall
-    cd ../../
+
     echo "アンインストールが完了しました"
     exit 1
 fi
