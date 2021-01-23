@@ -15,7 +15,7 @@ fi
 if [ $1 = "install" ]; then
     echo "インストールを開始します"
     # 依存パッケージのインストール
-    sudo apt install -y git build-essential dkms wget unzip linux-headers-$(uname -r)
+    apt install -y git build-essential dkms wget unzip linux-headers-$(uname -r)
     # ファームウェアの抽出とインストール
     git clone https://github.com/nns779/px4_drv.git
     cd px4_drv
@@ -24,13 +24,13 @@ if [ $1 = "install" ]; then
     wget http://plex-net.co.jp/plex/pxw3u4/pxw3u4_BDA_ver1x64.zip -O pxw3u4_BDA_ver1x64.zip
     unzip -oj pxw3u4_BDA_ver1x64.zip pxw3u4_BDA_ver1x64/PXW3U4.sys
     ./fwtool PXW3U4.sys it930x-firmware.bin
-    sudo mkdir -p /lib/firmware
-    sudo cp it930x-firmware.bin /lib/firmware/
+    mkdir -p /lib/firmware
+    cp it930x-firmware.bin /lib/firmware/
     cd ..
     # ドライバのインストール
-    sudo cp -a ./ /usr/src/px4_drv-0.2.1
-    sudo dkms add px4_drv/0.2.1
-    sudo dkms install px4_drv/0.2.1
+    cp -a ./ /usr/src/px4_drv-0.2.1
+    dkms add px4_drv/0.2.1
+    dkms install px4_drv/0.2.1
     echo "インストールが完了しました"
     exit 1
 fi
@@ -38,10 +38,10 @@ fi
 if [ $1 = "uninstall" ]; then
     echo "アンインストールを開始します"
     # ドライバのアンインストール
-    sudo dkms remove px4_drv/0.2.1 --all
-    sudo rm -rf /usr/src/px4_drv-0.2.1
+    dkms remove px4_drv/0.2.1 --all
+    rm -rf /usr/src/px4_drv-0.2.1
     # ファームウェアのアンインストール
-    sudo rm /lib/firmware/it930x-firmware.bin
+    rm /lib/firmware/it930x-firmware.bin
     echo "アンインストールが完了しました"
     exit 1
 fi
