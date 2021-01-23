@@ -15,7 +15,7 @@ fi
 
 if [ $1 = "install" ] ; then
     echo "インストールを開始します"
-    pm2 start processes.json
+    pm2 start ~/chinachu/processes.json
     pm2 save
     exit 1
 fi
