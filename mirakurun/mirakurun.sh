@@ -27,7 +27,7 @@ fi
 
 if [ $1 = "uninstall" ] ; then
     echo "アンインストールを開始します"
-
+    npm uninstall mirakurun -g --unsafe-perm
     echo "アンインストールが完了しました"
     exit 1
 fi
