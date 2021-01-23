@@ -15,7 +15,7 @@ fi
 if [ $1 = "install" ]; then
     echo "インストールを開始します"
     # 依存パッケージのインストール
-    sudo apt install -y git build-essential dkms
+    sudo apt install -y git build-essential dkms wget unzip linux-headers-$(uname -r)
     # ファームウェアの抽出とインストール
     git clone https://github.com/nns779/px4_drv.git
     cd px4_drv
