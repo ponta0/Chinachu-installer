@@ -28,8 +28,8 @@ if [ $1 = "install" ] ; then
 fi
 
 if [ $1 = "uninstall" ] ; then
-    echo "アンインストールを開始します"
-
-    echo "アンインストールが完了しました"
+    #echo "アンインストールを開始します"
+    echo "この機能は未実装です"
+    #echo "アンインストールが完了しました"
     exit 1
 fi
