@@ -18,7 +18,7 @@ if [ $1 = "install" ] ; then
     sh tuners/px-w3u4/px-w3u4.sh
     sh recpt1/recpt1.sh
     sh mirakurun/mirakurun.sh
-    su $USER -c chinachu/chinachu.sh
+    sh chinachu/chinachu.sh
     echo "インストールが完了しました"
     exit 1
 fi
