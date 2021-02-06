@@ -20,7 +20,8 @@ if [ $1 = "install" ] ; then
     echo 1 | ./chinachu installer
     cp config.sample.json config.json
     sed -i -e 's/"uid": null,/"uid": 1000,/g' config.json
-    echo [] > rules.json   
+    echo [] > rules.json 
+    ./chinachu service wui execute
     echo "インストールが完了しました"
     exit 1
 fi
